@@ -1,0 +1,41 @@
+@import '../../../assets/scss/global.scss';
+
+.landing {
+  padding: 10rem $padding 0 $padding;
+
+  & h6 {
+    color: $dark;
+    font-weight: 300;
+    font-size: 0.75rem;
+  }
+
+  & h1 {
+    color: $second;
+    font-weight: 600;
+
+    & span {
+      display: block;
+    }
+
+    & .landing-title-1 {
+      margin-top: -0.9rem;
+
+      font-size: 4.1rem;
+    }
+
+    & .landing-title-2 {
+      margin: -0.8rem 0 0 4rem;
+
+      font-size: 4.1rem;
+      text-decoration: underline;
+      color: $accent;
+    }
+
+    & .landing-title-3 {
+      margin-left: 2rem;
+
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+}

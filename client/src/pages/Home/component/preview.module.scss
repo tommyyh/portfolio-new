@@ -1,0 +1,30 @@
+@import '../../../assets/scss/global.scss';
+
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 21.87rem;
+  height: 15.93rem;
+  overflow: hidden;
+  position: relative;
+  right: 0;
+  margin: 6rem 0 0 auto;
+
+  background: $lighter-bg;
+
+  & img {
+    width: 15.8rem;
+    height: 14rem;
+    margin-top: 0.75rem;
+
+    &:first-child {
+      margin-right: 0.56rem;
+    }
+
+    &:last-child {
+      margin-right: -13.5rem;
+    }
+  }
+}
