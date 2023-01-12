@@ -1,0 +1,44 @@
+@import '../../assets/scss/global.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 3rem $padding;
+  width: 100%;
+  height: 45rem;
+
+  background: linear-gradient(229.28deg, #111111 17.86%, #111111 17.87%, #0C0C0C 74.43%);
+
+  & h2 {
+    margin: 0 4.3rem 0 0;
+    
+    font-size: 1.87rem;
+    font-weight: 500;
+    color: $second;
+  }
+
+  & h3 {
+    margin: 2.25rem 0 0 0;
+
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: $accent;
+    text-decoration: underline;
+  }
+
+  & li {
+    margin: 0.4rem 0 0 0;
+
+    list-style-type: none;
+    font-size: 1rem;
+    font-weight: 300;
+    color: $text;
+  }
+  
+  & a {
+    text-decoration: none;
+    color: $text;
+  }
+}

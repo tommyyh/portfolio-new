@@ -1,0 +1,54 @@
+@import '../../assets/scss/global.scss';
+
+.reviews {
+  padding: 11rem 0 0 0;
+}
+
+.reviews-title {
+  padding: 0 $padding 0 $padding;
+
+  & h5 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: $dark;
+  }
+
+  & h2 {
+    margin: 0.1rem 1.25rem 0 0;
+
+    line-height: 2.2rem;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: $second;
+
+    & span {
+      color: $accent;
+    }
+  }
+}
+
+.reviews-list {
+  display: flex;
+  align-items: center;
+
+  margin: 1.2rem 0 0 0;
+  overflow: hidden;
+}
+
+// Lamp
+.reviews-lamp {
+  position: relative;
+  margin: 0 0 10rem 5.25rem;
+}
+
+.reviews-lamp-light {
+  position: absolute;
+  width: 94px;
+  height: 94px;
+  left: -2.7rem;
+  margin-top: -0.6rem;
+  z-index: -1;
+
+  background: rgba(241, 241, 241, 0.7);
+  filter: blur(54px);
+}

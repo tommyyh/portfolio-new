@@ -24,6 +24,10 @@
     margin-top: 0;
   }
 
+  &:last-child {
+    border-bottom: none;
+  }
+
   & .step-order {
     padding-right: 1.15rem;
 
