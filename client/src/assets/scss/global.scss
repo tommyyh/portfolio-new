@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
 @import './variables.scss';
 
 * {
@@ -11,6 +11,8 @@ body {
   font-family: $font-family;
   font-weight: 400;
   background: $primary;
+
+  margin-bottom: 500px;
 }
 
 // Remove weird blue background when google autofill is used on inputs 

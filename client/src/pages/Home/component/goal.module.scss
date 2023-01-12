@@ -1,0 +1,47 @@
+@import '../../../assets/scss/global.scss';
+
+.goal {
+  padding: 3.25rem 0 0 calc(100vw - 21.87rem);
+
+  & h2 {
+    margin: 0 3rem 0 0;
+
+    color: $second;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  & p {
+    margin: 1.22rem 5rem 0 0;
+
+    color: $text;
+    font-weight: 300;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+
+    & span {
+      color: $accent;
+    }
+  }
+
+  & .goal-lamp {
+    position: relative;
+
+    & svg {
+      margin: 1.5rem 0 0 0;
+    }
+  
+    & .goal-lamp-light {
+      position: absolute;
+      width: 6.5rem;
+      height: 6.5rem;
+      left: -1.85rem;
+      margin-top: -0.5rem;
+      z-index: -1;
+      
+      background: $accent;
+      opacity: 75%;
+      filter: blur(54px);
+    }
+  }
+}
