@@ -39,6 +39,11 @@
 .reviews-lamp {
   position: relative;
   margin: 0 0 10rem 5.25rem;
+
+  & svg {
+    position: relative;
+    z-index: 16;
+  }
 }
 
 .reviews-lamp-light {
@@ -47,7 +52,7 @@
   height: 94px;
   left: -2.7rem;
   margin-top: -0.6rem;
-  z-index: -1;
+  z-index: 15;
 
   background: rgba(241, 241, 241, 0.7);
   filter: blur(54px);

@@ -15,7 +15,7 @@ const Websites = ({ detailed }) => {
           'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
         }
         detailed={detailed}
-        link={'/'}
+        link={'/my-work/34928'}
         role={'Fullstack developer'}
       />
       <Project
@@ -26,7 +26,7 @@ const Websites = ({ detailed }) => {
           'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
         }
         detailed={detailed}
-        link={'/'}
+        link={'/my-work/34928'}
         role={'UX/UI developer'}
       />
       <Project
@@ -37,7 +37,7 @@ const Websites = ({ detailed }) => {
           'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
         }
         detailed={detailed}
-        link={'/'}
+        link={'/my-work/34928'}
         role={'Fullstack developer'}
       />
       <Project
@@ -48,7 +48,7 @@ const Websites = ({ detailed }) => {
           'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
         }
         detailed={detailed}
-        link={'/'}
+        link={'/my-work/34928'}
         role={'UX/UI developer'}
       />
     </div>
@@ -66,7 +66,7 @@ const Project = ({
 }) => {
   return (
     <div className={css['project']}>
-      <Link to={'/'} className={css['project-img-link']}>
+      <Link to={link} className={css['project-img-link']}>
         <img src={img} alt='Project thumbnail' />
       </Link>
 
@@ -80,10 +80,14 @@ const Project = ({
         <h5 className={css['project-subtitle']}>{subTitle}</h5>
         <h3>{detailed ? detailedTitle : title}</h3>
 
-        <h5 className={css['project-role']}>Role: {role}</h5>
-        <Link to={link} className={css['project-learn-more']}>
-          Learn More
-        </Link>
+        {detailed && (
+          <>
+            <h5 className={css['project-role']}>Role: {role}</h5>
+            <Link to={link} className={css['project-learn-more']}>
+              Learn More
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

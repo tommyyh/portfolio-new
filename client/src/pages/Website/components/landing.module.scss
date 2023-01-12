@@ -1,0 +1,79 @@
+@import '../../../assets/scss/global.scss';
+
+.landing {
+  padding: 3rem $padding 0 $padding;
+
+  & img {
+    width: 100%;
+    margin-top: 1.2rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 10rem;
+    }
+  }
+}
+
+.landing-main {
+  & h1 {
+    margin: 0 0 3rem 0;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $second;
+  }
+
+  & a {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: $accent;
+  }
+}
+
+.landing-details {
+  margin: 7rem 0 0 0;
+}
+
+.landing-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 2.75rem;
+  border-bottom: 1.4px #252525 solid;
+
+  & h4 {
+    color: $text;
+    font-weight: 300;
+    font-size: 0.81rem;
+  }
+
+  & p {
+    color: $text;
+    font-weight: 300;
+    font-size: 0.81rem;
+  }
+}
+
+.landing-detail-column {
+  padding: 2rem 0;
+  width: 100%;
+
+  & h4 {
+    color: $second;
+    font-weight: 300;
+    font-size: 0.81rem;
+  }
+
+  & p {
+    margin: 0.5rem 3rem 0 0;
+    
+    color: $text;
+    font-weight: 300;
+    font-size: 0.81rem;
+  }
+}

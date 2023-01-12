@@ -18,7 +18,9 @@ const Reviews = () => {
 
       firstRef.current.style.marginLeft = `-${newMargin}px`;
 
-      document.body.style.overflowY = 'initial';
+      setTimeout(() => {
+        document.body.style.overflowY = 'initial';
+      }, 200);
       setCounter(counter + 1);
     }
   };
