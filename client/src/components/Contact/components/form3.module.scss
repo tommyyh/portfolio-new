@@ -1,0 +1,40 @@
+@import '../../../assets/scss/global.scss';
+
+.form {
+  padding: 6rem 0 0 0;
+
+  & h2 {
+    line-height: 2.52rem;
+    font-size: 2.15rem;
+    font-weight: 600;
+    color: $second;
+  }
+
+  & button {
+    width: fit-content;
+    padding: 0.8rem 2.5rem;
+    margin: 0.65rem 0 0 0;
+
+    border: none;
+    color: $accent2;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 200ms ease;
+
+    &:first-child {
+      margin-top: 3rem;
+    }
+  }
+
+  & .form-other {
+    background: transparent;
+    color: $second;
+    border: 2.5px solid $second;
+  }
+}
+
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+}

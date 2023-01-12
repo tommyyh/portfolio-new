@@ -1,6 +1,5 @@
 import React from 'react';
 import css from './landing.module.scss';
-import { Link } from 'react-router-dom';
 import RimmingtonImg from '../../../assets/images/rimmington.png';
 
 const Landing = () => {

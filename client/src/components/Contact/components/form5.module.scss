@@ -1,0 +1,61 @@
+@import '../../../assets/scss/global.scss';
+
+.form {
+  padding: 6rem 0 0 0;
+
+  & h2 {
+    line-height: 2.52rem;
+    font-size: 2.15rem;
+    font-weight: 600;
+    color: $second;
+  }
+
+  & button {
+    position: relative;
+    padding: 0.72rem 2.5rem;
+    margin: 1.5rem 0 0 0;
+  
+    background: $second;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: $accent2;
+    transition: 300ms ease;
+  }
+}
+
+// Input
+.form-input {
+  position: relative;
+  width: 100%;
+  height: 3.15rem;
+  margin: 2rem 0 0 0;
+  overflow: hidden;
+
+  & input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    background: transparent;
+    border-bottom: 3px $second solid;
+    outline: none;
+    color: $second-darker;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &::placeholder {
+      color: $second-darker;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.form-error {
+  margin: 0.3rem 0 0 0;
+
+  color: #ffeb9c;
+  font-size: 1rem;
+  font-weight: 400;
+}

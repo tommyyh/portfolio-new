@@ -15,6 +15,10 @@ body {
   // margin-bottom: 500px;
 }
 
+button, input {
+  font-family: $font-family;
+}
+
 // Remove weird blue background when google autofill is used on inputs 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {

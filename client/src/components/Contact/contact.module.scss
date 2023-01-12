@@ -1,0 +1,71 @@
+@import '../../assets/scss/global.scss';
+
+.contact {
+  width: 0;
+  height: 0;
+  position: fixed;
+  top: -5rem;
+  left: -5rem;
+  z-index: 100;
+
+  background: $accent2;
+  border-radius: 50%;
+  transition: all 400ms;
+}
+
+.menu-top {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 100%;
+
+  & h4 {
+    text-decoration: underline;
+  }
+
+  & h2, h4 {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: $second;
+  }
+}
+
+.contact-go-back {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: $second;
+  text-decoration: underline;
+}
+
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+  opacity: 0;
+  padding: 2rem $padding;
+
+  transition: 300ms ease-in;
+  transition-delay: -1s;
+}
+
+.contact-main-visible {
+  opacity: 100%;
+
+  transition: 300ms ease-in;
+  transition-delay: 0.5s;
+}
+
+.contact-open {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  border-radius: 0;
+}

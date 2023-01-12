@@ -1,13 +1,17 @@
 import React from 'react';
 import css from './footer.module.scss';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setContactOpen } from '../../features/stateSlice';
 
 const Footer = () => {
+  const dispatch = useDispatch();
+
   return (
     <footer className={css['footer']}>
       <div className={css['footer-top']}>
         <h2>Bring your business to light.</h2>
-        <h3>Let’s talk</h3>
+        <h3 onClick={() => dispatch(setContactOpen(true))}>Let’s talk</h3>
       </div>
 
       <div className={css['footer-mid']}>

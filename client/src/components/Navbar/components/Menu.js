@@ -1,8 +1,12 @@
 import React from 'react';
 import css from './menu.module.scss';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setContactOpen } from '../../../features/stateSlice';
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
+  const dispatch = useDispatch();
+
   return (
     <div
       className={menuOpen ? `${css['menu']} ${css['menu-open']}` : css['menu']}
@@ -29,10 +33,8 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
             <li>
               <Link to={'/'}>socials</Link>
             </li>
-            <li>
-              <Link to={'/'}>
-                <u>contact me</u>
-              </Link>
+            <li onClick={() => dispatch(setContactOpen(true))}>
+              <u>contact me</u>
             </li>
           </ul>
         </div>
