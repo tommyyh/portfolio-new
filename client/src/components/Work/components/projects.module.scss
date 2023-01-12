@@ -1,0 +1,40 @@
+@import '../../../assets/scss/global.scss';
+
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.project {
+  width: 100%;
+  margin-top: 6rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 6.8rem;
+  }
+
+  & img {
+    width: 100%;
+  }
+
+  & .project-content {
+    margin-top: 0.88rem;
+
+    & h5 {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: $dark;
+    }
+
+    & h3 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: $second;
+      text-shadow: 0px 2px 5px 0px rgb(255, 255, 255, 25);
+    }
+  }
+}

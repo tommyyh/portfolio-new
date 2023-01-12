@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Landing from './component/Landing';
 import Preview from './component/Preview';
 import Goal from './component/Goal';
+import Work from '../../components/Work/Work';
 
 const Home = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Landing />
       <Preview />
       <Goal />
+      <Work />
     </>
   );
 };
