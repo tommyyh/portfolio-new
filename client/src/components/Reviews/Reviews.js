@@ -10,24 +10,30 @@ const Reviews = () => {
 
   const leftSwipe = () => {
     if (counter < reviewAmount) {
+      document.body.style.overflowY = 'hidden';
+
       const imgWidth = firstRef.current.offsetWidth;
       const divMargin = 0;
       const newMargin = counter * (imgWidth + divMargin);
 
       firstRef.current.style.marginLeft = `-${newMargin}px`;
 
+      document.body.style.overflowY = 'initial';
       setCounter(counter + 1);
     }
   };
 
   const rightSwipe = () => {
     if (counter > 1) {
+      document.body.style.overflowY = 'hidden';
+
       const imgWidth = firstRef.current.offsetWidth;
       const divMargin = 0;
       const newMargin = (counter - 2) * (imgWidth + divMargin);
 
       firstRef.current.style.marginLeft = `-${newMargin}px`;
 
+      document.body.style.overflowY = 'initial';
       setCounter(counter - 1);
     }
   };

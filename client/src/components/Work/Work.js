@@ -1,18 +1,24 @@
 import React from 'react';
 import css from './work.module.scss';
-import Projects from './components/Projects';
+import Websites from './components/Websites';
 import { Link } from 'react-router-dom';
 
-const Work = () => {
+const Work = ({ detailed }) => {
   return (
     <section className={css['work']}>
-      <h2>
-        Our Recent Work<span>.</span>
-      </h2>
+      {!detailed && (
+        <h2>
+          Our Recent Work<span>.</span>
+        </h2>
+      )}
 
-      <Projects />
+      <Websites detailed={detailed} />
 
-      <Link to={'/'}>View all our work (5)</Link>
+      {!detailed && (
+        <Link to={'/my-work'} className={css['work-view-all']}>
+          View all our work (5)
+        </Link>
+      )}
     </section>
   );
 };
