@@ -1,0 +1,58 @@
+@import '../../../assets/scss/global.scss';
+
+.process {
+  padding: 9.5rem $padding 0 $padding;
+
+  & h2 {
+    margin-bottom: 2.25rem;
+
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: $dark;
+  }
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+
+  margin-top: 1.8rem;
+
+  border-bottom: 1.75px $fading-bg solid;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & .step-order {
+    padding-right: 1.15rem;
+
+    & h6 {
+      font-size: 0.81rem;
+      font-weight: 300;
+      color: $text;
+    }
+  }
+
+  & .step-content {
+    & h4 {
+      margin: -0.4rem 10rem 0 0;
+
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: $second;
+    }
+
+    & p {
+      padding: 1rem 0 1.3rem 0;
+
+      line-height: 1.47rem;
+      font-size: 0.81rem;
+      color: $text;
+
+      & span, u {
+        color: $accent;
+      }
+    }
+  }
+}

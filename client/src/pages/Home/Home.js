@@ -4,6 +4,7 @@ import Landing from './component/Landing';
 import Preview from './component/Preview';
 import Goal from './component/Goal';
 import Work from '../../components/Work/Work';
+import Process from './component/Process';
 
 const Home = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Home = () => {
       <Preview />
       <Goal />
       <Work />
+      <Process />
     </>
   );
 };
