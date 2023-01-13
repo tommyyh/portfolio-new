@@ -60,3 +60,91 @@
     }
   }
 }
+
+@media all and (min-width: 1025px) {
+  .process-cont {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    width: 100%;
+  }
+
+  .process {
+    width: $width;
+    padding: 13rem $padding 0 $padding;
+  
+    & h2 {
+      margin-bottom: 2.75rem;
+      margin-left: 12rem;
+  
+      font-size: 1.22rem;
+      font-weight: 400;
+      color: $dark;
+    }
+  }
+  
+  .step {
+    display: flex;
+    align-items: flex-start;
+  
+    margin-top: 1.8rem;
+    padding: 0.89rem 12rem 3.18rem 12rem;
+  
+    border-bottom: 1.75px $fading-bg solid;
+  
+    &:first-child {
+      margin-top: 0;
+    }
+  
+    &:last-child {
+      border-bottom: none;
+    }
+  
+    & .step-order {
+      padding-right: 1.15rem;
+  
+      & h6 {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: $text;
+      }
+    }
+  
+    & .step-content {
+      display: flex;
+      justify-content: space-between;
+
+      margin: 0 0 0 1.8rem;
+
+      & h4 {
+        margin: -0.11rem 0rem 0 0;
+  
+        font-size: 1.55rem;
+        font-weight: 400;
+        color: $second;
+        line-height: 2.05rem;
+      }
+  
+      & p {
+        padding: 0 0 0 0;
+  
+        line-height: 1.47rem;
+        font-size: 0.85rem;
+        color: $text;
+  
+        & span, u {
+          color: $accent;
+        }
+      }
+    }
+
+    & .step-content-text {
+      width: 40%;
+    }
+
+    & .step-content-title {
+      width: 20%;
+    }
+  }
+}
