@@ -57,3 +57,145 @@
   background: rgba(241, 241, 241, 0.7);
   filter: blur(54px);
 }
+
+@media all and (min-width: 1025px) {
+  .reviews-cont {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  
+    width: 100%;
+  }
+
+  .reviews {
+    width: $width;
+    padding: 11rem 13.5rem 0 13.5rem;
+  }
+
+  .reviews-buttons {
+    display: flex;
+
+    & .reviews-button {
+      padding: 0.35rem 1.7rem;
+
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: $dark;
+      border: 2px solid #1A1A1A;
+      cursor: pointer;
+      user-select: none;
+
+      &:first-child {
+        margin-right: 0.78rem;
+      }
+    }
+  }
+  
+  .reviews-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding: 0 0 0 0;
+  
+    & h5 {
+      font-size: 0.925rem;
+      font-weight: 400;
+      color: $dark;
+    }
+  
+    & h2 {
+      margin: 0.1rem 0 0 0;
+  
+      line-height: 2.2rem;
+      font-size: 2rem;
+      font-weight: 500;
+      color: $second;
+  
+      & span {
+        color: $accent;
+      }
+    }
+  }
+  
+  .reviews-list {
+    display: flex;
+    align-items: center;
+  
+    width: 33.2rem;
+    margin: 0 0 0 0;
+    overflow: hidden;
+  }
+  
+  // Lamp
+  .reviews-lamp {
+    position: relative;
+    margin: 0 0 10rem 5.25rem;
+  
+    & svg {
+      position: relative;
+      z-index: 16;
+    }
+  }
+  
+  .reviews-lamp-light {
+    position: absolute;
+    width: 94px;
+    height: 94px;
+    left: -2.7rem;
+    margin-top: -0.6rem;
+    z-index: 15;
+  
+    background: rgba(241, 241, 241, 0.7);
+    filter: blur(54px);
+  }
+
+  // Side boxes
+  .reviews-list-cont {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    margin: 2.5rem 0 0 0;
+  }
+  
+  .reviews-box {
+    width: 15rem;
+    height: 18.7rem;
+    position: absolute;
+
+    background: linear-gradient(113.38deg, #111111 0%, #181818 49.96%, #1C1C1C 98.98%);
+  }
+
+  .reviews-box-left {
+    left: -16.5rem;
+
+    &::before {
+      content: '';
+      width: 15rem;
+      height: 15.5rem;
+      position: absolute;
+      left: -16.5rem;
+      bottom: 0;
+
+      background: linear-gradient(113.38deg, #111111 0%, #181818 49.96%, #1C1C1C 98.98%);
+    }
+  }
+
+  .reviews-box-right {
+    width: 24rem;
+    left: 34.7rem;
+    
+    &::after {
+      content: '';
+      width: 23.5rem;
+      height: 15.5rem;
+      position: absolute;
+      left: 25.5rem;
+      bottom: 0;
+
+      background: linear-gradient(113.38deg, #111111 0%, #181818 49.96%, #1C1C1C 98.98%);
+    }
+  }
+}

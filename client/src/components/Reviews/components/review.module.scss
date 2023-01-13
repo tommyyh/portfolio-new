@@ -45,3 +45,51 @@
     color: $second;
   }
 }
+
+@media all and (min-width: 1025px) {
+  .review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    min-width: 33.2rem;
+    height: 22rem;
+    padding: 2.25rem 2.5rem 2.25rem 2.5rem;
+    position: relative;
+  
+    background: linear-gradient(113.38deg, #111111 0%, #181818 49.96%, #1C1C1C 98.98%);
+    transition: 290ms ease;
+  
+    & h6 {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+  
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: $text;
+    }
+  
+    & p {
+      margin: 0.9rem 8.5rem 0 0;
+  
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: $text;
+    }
+  
+    & h4 {
+      margin: 1.15rem 0 0 0;
+  
+      font-weight: 400;
+      font-size: 1.22rem;
+      color: $accent;
+    }
+  
+    & h3 {
+      font-weight: 300;
+      font-size: 0.875rem;
+      color: $second;
+    }
+  }
+}
