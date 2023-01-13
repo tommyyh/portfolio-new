@@ -47,17 +47,18 @@
     align-items: center;
     justify-content: center;
   
-    width: 1015px;
-    height: 456px;
+    width: 58rem;
+    height: 28.5rem;
     overflow: hidden;
     position: relative;
     right: 0;
     margin: 3rem 0 0 auto;
+    padding-left: 5rem;
   
     background: linear-gradient(90deg, #323232 0%, #111111 100%);
   
     & img {
-      width: 30rem;
+      width: 29rem;
       height: 23.6rem;
   
       &:first-child {

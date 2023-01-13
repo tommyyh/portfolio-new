@@ -5,20 +5,22 @@ import { Link } from 'react-router-dom';
 
 const Work = ({ detailed }) => {
   return (
-    <section className={css['work']}>
-      {!detailed && (
-        <h2>
-          Our Recent Work<span>.</span>
-        </h2>
-      )}
+    <section className={css['work-cont']}>
+      <div className={css['work']}>
+        {!detailed && (
+          <h2>
+            Our Recent Work<span>.</span>
+          </h2>
+        )}
 
-      <Websites detailed={detailed} />
+        <Websites detailed={detailed} />
 
-      {!detailed && (
-        <Link to={'/my-work'} className={css['work-view-all']}>
-          View all our work (5)
-        </Link>
-      )}
+        {!detailed && (
+          <Link to={'/my-work'} className={css['work-view-all']}>
+            View all our work (5)
+          </Link>
+        )}
+      </div>
     </section>
   );
 };

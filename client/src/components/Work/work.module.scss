@@ -28,3 +28,44 @@
     color: $second;
   }
 }
+
+@media all and (min-width: 1025px) {
+  .work-cont {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    width: 100%;
+  }
+
+  .work {
+    width: $width;
+    padding: 4rem $padding 0 $padding;
+  
+    background: transparent;
+  
+    & h2 {
+      margin-bottom: 2rem;
+      margin-left: 10rem;
+  
+      font-size: 3rem;
+      font-weight: 500;
+      color: $second;
+  
+      & span {
+        color: $lighter-bg;
+      }
+    }
+  
+    & .work-view-all {
+      display: block;
+      text-align: center;
+      
+      padding: 0.8rem 0;
+  
+      border: 1px $second solid;
+      text-decoration: none;
+      color: $second;
+    }
+  }
+}
