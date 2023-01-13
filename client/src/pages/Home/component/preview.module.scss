@@ -27,3 +27,48 @@
     }
   }
 }
+
+@media all and (min-width: 1025px) {
+  .preview-cont {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    width: 100%;
+  }
+
+  .preview-inner {
+    width: $width;
+    position: relative;
+  }
+
+  .preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 1015px;
+    height: 456px;
+    overflow: hidden;
+    position: relative;
+    right: 0;
+    margin: 3rem 0 0 auto;
+  
+    background: linear-gradient(90deg, #323232 0%, #111111 100%);
+  
+    & img {
+      width: 30rem;
+      height: 23.6rem;
+  
+      &:first-child {
+        margin-right: 0.56rem;
+      }
+  
+      &:last-child {
+        margin-right: initial;
+
+        mask-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+      }
+    }
+  }
+}

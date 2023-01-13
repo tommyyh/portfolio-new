@@ -28,10 +28,10 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
         <div className={css['menu-links']}>
           <ul>
             <li>
-              <Link to={'/my-work'}>my work</Link>
+              <Link to={'/'}>home</Link>
             </li>
             <li>
-              <Link to={'/'}>socials</Link>
+              <Link to={'/my-work'}>my work</Link>
             </li>
             <li onClick={() => dispatch(setContactOpen(true))}>
               <u>contact me</u>

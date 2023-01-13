@@ -24,7 +24,7 @@
     }
 
     & .landing-title-2 {
-      margin: -0.8rem 0 0 4rem;
+      margin: -1.05rem 0 0 4rem;
 
       font-size: 4.1rem;
       text-decoration: underline;
@@ -36,6 +36,132 @@
 
       font-size: 1.5rem;
       font-weight: 300;
+    }
+  }
+}
+
+@media all and (min-width: 1025px) {
+  .landing-cont {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    width: 100%;
+  }
+
+  .landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    width: $width;
+    height: 585px;
+    padding: 0 $padding;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 2.2rem;
+      left: $padding;
+      width: 2.5rem;
+      height: 4.5rem;
+
+      background: $primary-lighter;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    & .landing-box {
+      margin: 0 0 0.5rem 0.5rem;
+      width: 11rem;
+      height: 2.8rem;
+      position: relative;
+
+      background: $primary-lighter;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+
+      &::before {
+        content: '';
+        width: 6rem;
+        height: 2.8rem;
+        top: -3.36rem;
+        position: absolute;
+  
+        background: $primary-lighter;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+    }
+  
+    & h6 {
+      position: absolute;
+      transform: rotate(-90deg);
+      left: -5.8rem;
+      top: 1.2rem;
+
+      color: $dark;
+      font-weight: 300;
+      font-size: 0.75rem;
+    }
+  
+    & h1 {
+      position: relative;
+
+      color: $second;
+      font-weight: 500;
+      line-height: 7.5rem;
+
+      &::before {
+        content: 'Based in Czech Republic';
+        position: absolute;
+        top: 4rem;
+        right: 0;
+
+        line-height: 1.1rem;
+        font-size: 0.85rem;
+        font-weight: 300;
+        color: $dark;
+      }
+
+      &::after {
+        content: 'Pilsen';
+        position: absolute;
+        top: 5.5rem;
+        right: 0;
+
+        line-height: 1.1rem;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: $dark;
+      }
+  
+      & span {
+        display: initial;
+      }
+  
+      & .landing-title-1 {
+        margin-top: initial;
+  
+        font-size: 7.75rem;
+      }
+  
+      & .landing-title-2 {
+        margin: 0 0 0 7rem;
+  
+        font-size: 7.75rem;
+        text-decoration: underline;
+        color: $accent;
+      }
+  
+      & .landing-title-3 {
+        margin-left: 2rem;
+  
+        font-size: 7.75rem;
+        font-weight: 300;
+      }
     }
   }
 }

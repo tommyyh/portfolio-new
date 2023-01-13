@@ -40,7 +40,14 @@ const Contact = () => {
       >
         <div>
           <div className={css['menu-top']}>
-            <h4 onClick={() => dispatch(setContactOpen(false))}>close</h4>
+            <h4
+              onClick={() => {
+                dispatch(setContactOpen(false));
+                setStage(1);
+              }}
+            >
+              close
+            </h4>
           </div>
 
           {/* Forms ----------------------------------- */}
@@ -77,7 +84,12 @@ const Contact = () => {
         )}
         {stage === 6 && (
           <div
-            onClick={() => dispatch(setContactOpen(false))}
+            onClick={() =>
+              dispatch(() => {
+                setContactOpen(false);
+                setStage(1);
+              })
+            }
             className={css['contact-go-back']}
           >
             Go Back Home
