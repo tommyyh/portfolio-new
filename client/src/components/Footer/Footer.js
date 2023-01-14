@@ -88,9 +88,7 @@ const Footer = () => {
 
             <div className={css['footer-bot']}>
               <ul>
-                <li>
-                  <u>Privacy & Policy</u>
-                </li>
+                <li>Tommy Hoang</li>
                 <li>Czech Republic, Pilsen</li>
               </ul>
             </div>
