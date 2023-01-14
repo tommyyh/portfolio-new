@@ -28,6 +28,38 @@
   }
 }
 
+.nav-go-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  right: $padding;
+  bottom: -4.5rem;
+  z-index: 1500;
+
+  background: #2F2F2F;
+  border-radius: 50%;
+  transition: 300ms ease;
+  cursor: pointer;
+  opacity: 0;
+
+  &:hover {
+    background: #3e3e3e;
+  }
+
+  & svg {
+    margin-left: 1.2px;
+  }
+}
+
+.nav-go-back-active {
+  bottom: $padding;
+  opacity: 100%;
+}
+
 @media all and (min-width: 1025px) {
   .nav-cont {
     display: flex;

@@ -2,9 +2,22 @@ import React from 'react';
 import css from './review.module.scss';
 import { FaQuoteLeft } from 'react-icons/fa';
 
-const Review = ({ text, rating, signature, position, amount, myRef }) => {
+const Review = ({
+  text,
+  rating,
+  signature,
+  position,
+  amount,
+  myRef,
+  reviewsTrans,
+}) => {
   return (
-    <div className={css['review']} ref={myRef ? myRef : null}>
+    <div
+      className={
+        reviewsTrans ? `${css['review']} ${css['review-trans']}` : css['review']
+      }
+      ref={myRef ? myRef : null}
+    >
       <h6>
         {position}/{amount}
       </h6>

@@ -44,8 +44,8 @@
 
   .preview {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: initial;
+    justify-content: initial;
   
     width: 58rem;
     height: 28.5rem;
@@ -53,13 +53,16 @@
     position: relative;
     right: 0;
     margin: 3rem 0 0 auto;
-    padding-left: 5rem;
+    padding-left: 0;
+    padding: 3rem;
   
     background: linear-gradient(90deg, #323232 0%, #111111 100%);
   
     & img {
-      width: 29rem;
-      height: 23.6rem;
+      width: 32rem;
+      height: 22.25rem;
+      opacity: 92%;
+      object-fit: cover;
   
       &:first-child {
         margin-right: 0.56rem;
@@ -68,7 +71,7 @@
       &:last-child {
         margin-right: initial;
 
-        mask-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+        mask-image: linear-gradient(to right, rgba(0,0,0,0.65), rgba(0,0,0,0));
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import css from './navbar.module.scss';
 import { Link } from 'react-router-dom';
 import Menu from './components/Menu';
@@ -13,16 +13,91 @@ const Navbar = () => {
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
   const dispatch = useDispatch();
+  const [showArrow, setShowArrow] = useState(false);
+
+  const handleOnClick = () => {
+    window.scroll({
+      top: document.body.offsetHeight,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const goToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    // If user scrolls more than 500px -> set nav background to solid color
+    const onScroll = () => {
+      if (window.scrollY > 500) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   return (
     <nav className={css['nav-cont']}>
       <div className={css['nav']}>
+        {/* GO BACK TO TOP */}
+        <div
+          className={
+            showArrow
+              ? `${css['nav-go-back']} ${css['nav-go-back-active']}`
+              : css['nav-go-back']
+          }
+          onClick={goToTop}
+        >
+          <svg
+            width='16'
+            height='8'
+            viewBox='0 0 16 8'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <rect
+              x='7.19458'
+              y='0.147263'
+              width='2'
+              height='9.39176'
+              rx='1'
+              transform='rotate(50 7.19458 0.147263)'
+              fill='#9C9C9C'
+            />
+            <rect
+              x='6.23169'
+              y='1.53209'
+              width='2'
+              height='9.96816'
+              rx='1'
+              transform='rotate(-50 6.23169 1.53209)'
+              fill='#9C9C9C'
+            />
+          </svg>
+        </div>
+
         <Link to={'/'} className={css['nav-title']}>
           <h2>Tommy Hoang</h2>
         </Link>
 
         {isTabletOrMobile && (
-          <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <Menu
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+            handleOnClick={handleOnClick}
+          />
         )}
         {isTabletOrMobile && <h4 onClick={() => setMenuOpen(true)}>menu</h4>}
 
@@ -48,10 +123,10 @@ const Navbar = () => {
         {isDesktopOrLaptop && (
           <ul className={css['nav-links']}>
             <li>
-              <Link to={'/'}>home</Link>
-            </li>
-            <li>
               <Link to={'/my-work'}>my work</Link>
+            </li>
+            <li onClick={handleOnClick} style={{ cursor: 'pointer' }}>
+              social
             </li>
             <li
               className={css['nav-links-contact']}

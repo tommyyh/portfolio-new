@@ -58,8 +58,9 @@
     position: relative;
   
     background: linear-gradient(113.38deg, #111111 0%, #181818 49.96%, #1C1C1C 98.98%);
-    transition: 290ms ease;
-  
+    transition: 200ms ease;
+    opacity: 100%
+
     & h6 {
       position: absolute;
       top: 2rem;
@@ -91,5 +92,9 @@
       font-size: 0.875rem;
       color: $second;
     }
+  }
+
+  .review-trans {
+    opacity: 0;
   }
 }

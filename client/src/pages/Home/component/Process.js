@@ -1,7 +1,19 @@
 import React from 'react';
 import css from './process.module.scss';
+import { useDispatch } from 'react-redux';
+import { setContactOpen } from '../../../features/stateSlice';
 
 const Process = () => {
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
+    window.scroll({
+      top: document.body.offsetHeight,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className={css['process-cont']}>
       <div className={css['process']}>
@@ -13,8 +25,12 @@ const Process = () => {
           text={
             <p>
               The first thing you need to do is reaching out to me. You can do
-              that either by <u>filling out a form</u> or contacting me on any
-              of my <u>socials</u>.
+              that either by{' '}
+              <u onClick={() => dispatch(setContactOpen(true))}>
+                filling out a form
+              </u>{' '}
+              or contacting me on any of my{' '}
+              <u onClick={handleOnClick}>socials</u>.
             </p>
           }
         />

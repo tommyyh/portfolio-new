@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 
 const Reviews = () => {
   const [counter, setCounter] = useState(1);
+  const [reviewsTrans, setReviewsTrans] = useState(false);
   const firstRef = useRef();
   const reviewAmount = 4;
   const isDesktopOrLaptop = useMediaQuery({
@@ -18,33 +19,48 @@ const Reviews = () => {
       if (isTabletOrMobile) {
         document.body.style.overflowY = 'hidden';
       }
+      setReviewsTrans(true);
 
       const imgWidth = firstRef.current.offsetWidth;
       const divMargin = 0;
-      const newMargin = counter * (imgWidth + divMargin);
+      const newMargin = counter * (imgWidth + divMargin + 1);
 
       firstRef.current.style.marginLeft = `-${newMargin}px`;
 
       setTimeout(() => {
         document.body.style.overflowY = 'initial';
       }, 200);
+
+      setTimeout(() => {
+        setReviewsTrans(false);
+      }, 300);
+
       setCounter(counter + 1);
     }
   };
 
   const rightSwipe = () => {
     if (counter > 1) {
+      setReviewsTrans(true);
+
       if (isTabletOrMobile) {
         document.body.style.overflowY = 'hidden';
       }
 
       const imgWidth = firstRef.current.offsetWidth;
       const divMargin = 0;
-      const newMargin = (counter - 2) * (imgWidth + divMargin);
+      const newMargin = (counter - 2) * (imgWidth + divMargin + 1);
 
       firstRef.current.style.marginLeft = `-${newMargin}px`;
 
-      document.body.style.overflowY = 'initial';
+      setTimeout(() => {
+        document.body.style.overflowY = 'initial';
+      }, 200);
+
+      setTimeout(() => {
+        setReviewsTrans(false);
+      }, 300);
+
       setCounter(counter - 1);
     }
   };
@@ -68,10 +84,24 @@ const Reviews = () => {
 
           {isDesktopOrLaptop && (
             <div className={css['reviews-buttons']}>
-              <div className={css['reviews-button']} onClick={rightSwipe}>
+              <div
+                className={
+                  counter === 1
+                    ? css['reviews-button']
+                    : `${css['reviews-button']} ${css['reviews-button-active']}`
+                }
+                onClick={rightSwipe}
+              >
                 Previous
               </div>
-              <div className={css['reviews-button']} onClick={leftSwipe}>
+              <div
+                className={
+                  counter === 4
+                    ? css['reviews-button']
+                    : `${css['reviews-button']} ${css['reviews-button-active']}`
+                }
+                onClick={leftSwipe}
+              >
                 Next
               </div>
             </div>
@@ -94,6 +124,7 @@ const Reviews = () => {
               position={counter}
               amount={reviewAmount}
               myRef={firstRef}
+              reviewsTrans={reviewsTrans}
             />
             <Review
               text={
@@ -103,6 +134,7 @@ const Reviews = () => {
               signature={'Mark Zuckerberg, CEO Of Facebook'}
               position={counter}
               amount={reviewAmount}
+              reviewsTrans={reviewsTrans}
             />
             <Review
               text={
@@ -112,6 +144,7 @@ const Reviews = () => {
               signature={'Andrew Tate, CEO Of Academy'}
               position={counter}
               amount={reviewAmount}
+              reviewsTrans={reviewsTrans}
             />
             <Review
               text={
@@ -121,6 +154,7 @@ const Reviews = () => {
               signature={'Barack Obama, CEO Of Something'}
               position={counter}
               amount={reviewAmount}
+              reviewsTrans={reviewsTrans}
             />
           </div>
 

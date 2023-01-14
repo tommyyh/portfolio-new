@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setContactOpen } from '../../../features/stateSlice';
 
-const Menu = ({ menuOpen, setMenuOpen }) => {
+const Menu = ({ menuOpen, setMenuOpen, handleOnClick }) => {
   const dispatch = useDispatch();
 
   return (
@@ -28,10 +28,16 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
         <div className={css['menu-links']}>
           <ul>
             <li>
-              <Link to={'/'}>home</Link>
-            </li>
-            <li>
               <Link to={'/my-work'}>my work</Link>
+            </li>
+            <li
+              onClick={() => {
+                handleOnClick();
+                setMenuOpen(false);
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              socials
             </li>
             <li onClick={() => dispatch(setContactOpen(true))}>
               <u>contact me</u>

@@ -53,8 +53,12 @@
       line-height: 1.47rem;
       font-size: 0.81rem;
       color: $text;
+      
+      & span {
+        color: $accent2-hover;
+      }
 
-      & span, u {
+      & u {
         color: $accent;
       }
     }
@@ -133,8 +137,18 @@
         font-size: 0.85rem;
         color: $text;
   
-        & span, u {
+        & span {
+          color: $accent2-hover;
+        }
+  
+        & u {
           color: $accent;
+          cursor: pointer;
+          transition: 300ms ease;
+
+          &:hover {
+            color: $accent-hover;
+          }
         }
       }
     }

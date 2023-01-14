@@ -22,6 +22,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'Fullstack developer'}
+        tech={'Django, React, Redux'}
         year={'2022'}
         position={isDesktopOrLaptop ? 'left' : 'left'}
       />
@@ -35,6 +36,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'UX/UI developer'}
+        tech={'Django, React, Redux'}
         year={'2022'}
         position={isDesktopOrLaptop ? 'right' : 'left'}
       />
@@ -48,6 +50,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'Fullstack developer'}
+        tech={'Django, React, Redux'}
         year={'2022'}
         position={isDesktopOrLaptop ? 'mid' : 'left'}
       />
@@ -61,6 +64,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'UX/UI developer'}
+        tech={'Django, React, Redux'}
         year={'2022'}
         position={isDesktopOrLaptop ? 'right' : 'left'}
       />
@@ -78,6 +82,7 @@ const Project = ({
   link,
   position,
   year,
+  tech,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
@@ -88,10 +93,20 @@ const Project = ({
     <>
       {position === 'left' && (
         <div className={css['project']}>
-          <Link to={link} className={css['project-img-link']}>
+          <Link
+            to={link}
+            className={css['project-img-link']}
+            style={detailed ? { width: '100%' } : {}}
+          >
             <img src={img} alt='Project thumbnail' />
 
-            <div className={css['project-controls']}></div>
+            <div className={css['project-controls']}>
+              <ul>
+                <li>Year: {year}</li>
+                <li>{tech}</li>
+                <li>View more details</li>
+              </ul>
+            </div>
           </Link>
 
           <div
@@ -110,9 +125,15 @@ const Project = ({
               )}
 
               {detailed && isDesktopOrLaptop && (
-                <Link to={link} className={css['project-learn-more']}>
-                  Learn More
-                </Link>
+                <div className={css['project-learn-more-cont']}>
+                  <Link to={link} className={css['project-learn-more']}>
+                    Learn More
+                  </Link>
+
+                  <div className={css['project-more-hover']}>
+                    <p>{title}</p>
+                  </div>
+                </div>
               )}
             </div>
 
@@ -154,9 +175,15 @@ const Project = ({
               <h3>{detailed ? detailedTitle : title}</h3>
 
               {detailed && isDesktopOrLaptop && (
-                <Link to={link} className={css['project-learn-more']}>
-                  Learn More
-                </Link>
+                <div className={css['project-learn-more-cont']}>
+                  <Link to={link} className={css['project-learn-more']}>
+                    Learn More
+                  </Link>
+
+                  <div className={css['project-more-hover']}>
+                    <p>{title}</p>
+                  </div>
+                </div>
               )}
             </div>
 
@@ -179,16 +206,40 @@ const Project = ({
             )}
           </div>
 
-          <Link to={link} className={css['project-img-link']}>
+          <Link
+            to={link}
+            className={css['project-img-link']}
+            style={detailed ? { width: '100%' } : {}}
+          >
             <img src={img} alt='Project thumbnail' />
+
+            <div className={css['project-controls']}>
+              <ul>
+                <li>Year: {year}</li>
+                <li>{tech}</li>
+                <li>View more details</li>
+              </ul>
+            </div>
           </Link>
         </div>
       )}
 
       {position === 'mid' && (
         <div className={`${css['project']} ${css['project-mid']}`}>
-          <Link to={link} className={css['project-img-link']}>
+          <Link
+            to={link}
+            className={css['project-img-link']}
+            style={detailed ? { width: '100%' } : {}}
+          >
             <img src={img} alt='Project thumbnail' />
+
+            <div className={css['project-controls']}>
+              <ul>
+                <li>Year: {year}</li>
+                <li>{tech}</li>
+                <li>View more details</li>
+              </ul>
+            </div>
           </Link>
 
           <div
@@ -203,9 +254,15 @@ const Project = ({
               <h3>{detailed ? detailedTitle : title}</h3>
 
               {detailed && isDesktopOrLaptop && (
-                <Link to={link} className={css['project-learn-more']}>
-                  Learn More
-                </Link>
+                <div className={css['project-learn-more-cont']}>
+                  <Link to={link} className={css['project-learn-more']}>
+                    Learn More
+                  </Link>
+
+                  <div className={css['project-more-hover']}>
+                    <p>{title}</p>
+                  </div>
+                </div>
               )}
             </div>
 

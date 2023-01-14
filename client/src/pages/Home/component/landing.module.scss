@@ -3,7 +3,7 @@
 .landing {
   padding: 10rem $padding 0 $padding;
 
-  & h6 {
+  & p {
     color: $dark;
     font-weight: 300;
     font-size: 0.75rem;
@@ -96,7 +96,7 @@
       }
     }
   
-    & h6 {
+    & p {
       position: absolute;
       transform: rotate(-90deg);
       left: -5.8rem;
@@ -154,6 +154,11 @@
         font-size: 7.75rem;
         text-decoration: underline;
         color: $accent;
+        transition: 300ms ease;
+
+        &:hover {
+          color: $accent-hover;
+        }
       }
   
       & .landing-title-3 {
