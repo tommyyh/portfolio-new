@@ -35,3 +35,10 @@ input[data-autocompleted] {
     cursor: pointer;
   }
 }
+
+// Desktop view
+@media (min-width: 481px) and (max-width: 1024px) {
+  html {
+    font-size: 30px;
+  }
+}
