@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
 import Landing from './component/Landing';
 import Preview from './component/Preview';
 import Goal from './component/Goal';
@@ -20,7 +19,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <Landing />
       <Preview />
       <Goal />

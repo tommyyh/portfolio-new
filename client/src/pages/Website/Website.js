@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Landing from './components/Landing';
-import Work from '../../components/Work/Work';
 
 const Website = () => {
   useEffect(() => {
@@ -16,7 +14,6 @@ const Website = () => {
 
   return (
     <>
-      <Navbar />
       <Landing />
       <Footer />
     </>

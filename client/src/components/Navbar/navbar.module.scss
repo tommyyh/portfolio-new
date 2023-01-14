@@ -203,4 +203,67 @@
       }
     }
   }
+
+  .loading1 {
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    bottom: -100vh;
+    left: 0;
+    z-index: 2000;
+    transition: 500ms ease-in-out;
+    transition-delay: 0.4s;
+    
+    background: $accent;
+  }
+
+  .loading1-active {
+    bottom: 0;
+  }
+
+  .loading2 {
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    bottom: -100vh;
+    left: 0;
+    z-index: 2000;
+    transition: 500ms ease-in-out;
+    transition-delay: 0.65s;
+    
+    background: $primary;
+  }
+
+  .loading2-active {
+    bottom: 0;
+  }
+
+  .loading-bg {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1800;
+    
+    background: $primary;
+
+    & h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      color: $text;
+      font-style: italic;
+    }
+  }
+
+  .loading-bg-active {
+    display: flex;
+  }
 }
