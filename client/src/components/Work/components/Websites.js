@@ -22,6 +22,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'Fullstack developer'}
+        year={'2022'}
         position={isDesktopOrLaptop ? 'left' : 'left'}
       />
       <Project
@@ -34,6 +35,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'UX/UI developer'}
+        year={'2022'}
         position={isDesktopOrLaptop ? 'right' : 'left'}
       />
       <Project
@@ -46,6 +48,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'Fullstack developer'}
+        year={'2022'}
         position={isDesktopOrLaptop ? 'mid' : 'left'}
       />
       <Project
@@ -58,6 +61,7 @@ const Websites = ({ detailed }) => {
         detailed={detailed}
         link={'/my-work/34928'}
         role={'UX/UI developer'}
+        year={'2022'}
         position={isDesktopOrLaptop ? 'right' : 'left'}
       />
     </div>
@@ -73,10 +77,12 @@ const Project = ({
   role,
   link,
   position,
+  year,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
   });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
 
   return (
     <>
@@ -84,6 +90,8 @@ const Project = ({
         <div className={css['project']}>
           <Link to={link} className={css['project-img-link']}>
             <img src={img} alt='Project thumbnail' />
+
+            <div className={css['project-controls']}></div>
           </Link>
 
           <div
@@ -95,18 +103,35 @@ const Project = ({
           >
             <div>
               <h5 className={css['project-subtitle']}>{subTitle}</h5>
-              <h3>{detailed ? detailedTitle : title}</h3>
+              {!detailed ? (
+                <h3>{title}</h3>
+              ) : (
+                <h3 className={css['project-title-left']}>{detailedTitle}</h3>
+              )}
+
+              {detailed && isDesktopOrLaptop && (
+                <Link to={link} className={css['project-learn-more']}>
+                  Learn More
+                </Link>
+              )}
             </div>
 
-            {isDesktopOrLaptop && <h6>Role: {role}</h6>}
+            {isDesktopOrLaptop && !detailed && <h6>Role: {role}</h6>}
 
-            {detailed && (
+            {detailed && isTabletOrMobile && (
               <>
                 <h5 className={css['project-role']}>Role: {role}</h5>
                 <Link to={link} className={css['project-learn-more']}>
                   Learn More
                 </Link>
               </>
+            )}
+
+            {detailed && isDesktopOrLaptop && (
+              <div>
+                <h5 className={css['project-year']}>{year}</h5>
+                <h5 className={css['project-role']}>Role: {role}</h5>
+              </div>
             )}
           </div>
         </div>
@@ -117,24 +142,40 @@ const Project = ({
           <div
             className={
               detailed
-                ? `${css['project-content']} ${css['project-content-detailed']}`
+                ? `${css['project-content']} ${css['project-content-detailed']} ${css['project-detailed-right']}`
                 : css['project-content']
+            }
+            style={
+              detailed ? { marginLeft: '10rem', marginRight: '-0.5rem' } : {}
             }
           >
             <div>
               <h5 className={css['project-subtitle']}>{subTitle}</h5>
               <h3>{detailed ? detailedTitle : title}</h3>
+
+              {detailed && isDesktopOrLaptop && (
+                <Link to={link} className={css['project-learn-more']}>
+                  Learn More
+                </Link>
+              )}
             </div>
 
-            {isDesktopOrLaptop && <h6>Role: {role}</h6>}
+            {isDesktopOrLaptop && !detailed && <h6>Role: {role}</h6>}
 
-            {detailed && (
+            {detailed && isTabletOrMobile && (
               <>
                 <h5 className={css['project-role']}>Role: {role}</h5>
                 <Link to={link} className={css['project-learn-more']}>
                   Learn More
                 </Link>
               </>
+            )}
+
+            {detailed && isDesktopOrLaptop && (
+              <div>
+                <h5 className={css['project-year']}>{year}</h5>
+                <h5 className={css['project-role']}>Role: {role}</h5>
+              </div>
             )}
           </div>
 
@@ -157,20 +198,33 @@ const Project = ({
                 : css['project-content']
             }
           >
-            <div>
+            <div style={detailed ? { width: '50%' } : {}}>
               <h5 className={css['project-subtitle']}>{subTitle}</h5>
               <h3>{detailed ? detailedTitle : title}</h3>
+
+              {detailed && isDesktopOrLaptop && (
+                <Link to={link} className={css['project-learn-more']}>
+                  Learn More
+                </Link>
+              )}
             </div>
 
-            {isDesktopOrLaptop && <h6>Role: {role}</h6>}
+            {isDesktopOrLaptop && !detailed && <h6>Role: {role}</h6>}
 
-            {detailed && (
+            {detailed && isTabletOrMobile && (
               <>
                 <h5 className={css['project-role']}>Role: {role}</h5>
                 <Link to={link} className={css['project-learn-more']}>
                   Learn More
                 </Link>
               </>
+            )}
+
+            {detailed && isDesktopOrLaptop && (
+              <div>
+                <h5 className={css['project-role']}>Role: {role}</h5>
+                <h5 className={css['project-year']}>{year}</h5>
+              </div>
             )}
           </div>
         </div>

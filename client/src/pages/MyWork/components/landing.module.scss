@@ -10,14 +10,61 @@
   }
 
   & h1 {
-    margin: -1rem 0 -2.7rem 0;
+    margin: 0 0 -2.7rem 0;
 
     font-size: 4rem;
     font-weight: 600;
     color: $second;
+    line-height: 4rem;
 
     & span {
       color: $accent;
+    }
+  }
+}
+
+@media all and (min-width: 1025px) {
+  .landing-cont {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    width: 100%;
+  }
+
+  .landing {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    padding: 12rem $padding 0 $padding;
+    width: $width;
+  
+    & .landing-go-back {
+      margin: 0 0 0 8rem;
+
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: $dark;
+      transition: 250ms ease;
+      opacity: 100%;
+
+      &:hover {
+        opacity: 80%;
+      }
+    }
+  
+    & h1 {
+      margin: -1rem 0 -2.7rem 0;
+  
+      font-size: 7.5rem;
+      font-weight: 500;
+      color: $second;
+      line-height: initial;
+  
+      & span {
+        color: $lighter-bg;
+      }
     }
   }
 }

@@ -8,7 +8,10 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   return (
-    <footer className={css['footer-cont']}>
+    <footer
+      className={css['footer-cont']}
+      style={window.location.pathname === '/' ? { margin: '0' } : {}}
+    >
       <div className={css['footer']}>
         <div className={css['footer-top']}>
           <h2>Bring your business to light.</h2>

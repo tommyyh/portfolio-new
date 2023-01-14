@@ -3,6 +3,8 @@ import css from './navbar.module.scss';
 import { Link } from 'react-router-dom';
 import Menu from './components/Menu';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch } from 'react-redux';
+import { setContactOpen } from '../../features/stateSlice';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,11 +12,12 @@ const Navbar = () => {
     query: '(min-width: 1025px)',
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+  const dispatch = useDispatch();
 
   return (
     <nav className={css['nav-cont']}>
       <div className={css['nav']}>
-        <Link to={'/'}>
+        <Link to={'/'} className={css['nav-title']}>
           <h2>Tommy Hoang</h2>
         </Link>
 
@@ -26,8 +29,20 @@ const Navbar = () => {
         {/* DESKTOP */}
         {isDesktopOrLaptop && (
           <ul className={`${css['nav-links']} ${css['nav-links-mid']}`}>
-            <li>info@tommyydesign.com</li>
-            <li>+420 797 602 438</li>
+            <li
+              onClick={() => {
+                window.location.href = `mailto:info@tommyydesign.com`;
+              }}
+            >
+              info@tommyydesign.com
+            </li>
+            <li
+              onClick={() => {
+                window.location.href = `tel:+420797602438`;
+              }}
+            >
+              +420 797 602 438
+            </li>
           </ul>
         )}
         {isDesktopOrLaptop && (
@@ -38,7 +53,12 @@ const Navbar = () => {
             <li>
               <Link to={'/my-work'}>my work</Link>
             </li>
-            <li className={css['nav-links-contact']}>contact me</li>
+            <li
+              className={css['nav-links-contact']}
+              onClick={() => dispatch(setContactOpen(true))}
+            >
+              contact me
+            </li>
           </ul>
         )}
       </div>

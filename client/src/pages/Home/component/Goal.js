@@ -1,12 +1,15 @@
 import React from 'react';
 import css from './goal.module.scss';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch } from 'react-redux';
+import { setContactOpen } from '../../../features/stateSlice';
 
 const Goal = () => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+  const dispatch = useDispatch();
 
   return (
     <section className={css['goal-cont']}>
@@ -23,7 +26,7 @@ const Goal = () => {
           people by establishing a better online presence, then you’re in the
           right place. We are determined to get you results and help your
           business hit it’s next milestone.{' '}
-          <u>
+          <u onClick={() => dispatch(setContactOpen(true))}>
             Together we will bring your business back to <span>light.</span>
           </u>
         </p>
