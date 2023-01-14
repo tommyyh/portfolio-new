@@ -57,6 +57,10 @@
     color: $accent2;
     transition: 300ms ease;
     opacity: 0;
+
+    &:hover {
+      opacity: 80%;
+    }
   }
 }
 

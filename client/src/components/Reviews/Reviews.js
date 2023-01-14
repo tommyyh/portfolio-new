@@ -76,7 +76,7 @@ const Reviews = () => {
       <div className={css['reviews']}>
         <div className={css['reviews-title']}>
           <div>
-            <h5>Don’t take our word for it (swipe)</h5>
+            <h5>Don’t take our word for it {isTabletOrMobile && '(swipe)'}</h5>
             <h2>
               Trust our past customers<span>.</span>
             </h2>
@@ -117,10 +117,12 @@ const Reviews = () => {
           <div {...handlers} className={css['reviews-list']}>
             <Review
               text={
-                'Tommy was able to nicely present our brand online. He was a pleasure to work with'
+                "Tommy is a guy that finds solutions, where they are needed the most. That's why working with him is a pleasure."
               }
-              rating={'4.8'}
-              signature={'Elon Musk, CEO Of Tesla'}
+              rating={'4.6'}
+              signature={
+                'Justus-Konrad Flade: CEO of Jubefa, F&S Consulting and more'
+              }
               position={counter}
               amount={reviewAmount}
               myRef={firstRef}

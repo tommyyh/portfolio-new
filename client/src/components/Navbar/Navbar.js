@@ -125,7 +125,11 @@ const Navbar = () => {
             <li>
               <Link to={'/my-work'}>my work</Link>
             </li>
-            <li onClick={handleOnClick} style={{ cursor: 'pointer' }}>
+            <li
+              onClick={handleOnClick}
+              className={css['nav-links-social']}
+              style={{ cursor: 'pointer' }}
+            >
               social
             </li>
             <li

@@ -1,34 +1,104 @@
 import React from 'react';
 import css from './landing.module.scss';
 import RimmingtonImg from '../../../assets/images/rimmington.png';
+import { useMediaQuery } from 'react-responsive';
 
 const Landing = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1025px)',
+  });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+
   return (
-    <main className={css['landing']}>
-      <div className={css['landing-main']}>
-        <h1>
-          Bradford pharmacy vaccinated over 40,000 patients with their online
-          booking form
-        </h1>
-        <a href={'https://rimmington.vercel.app/'}>Visit website</a>
-      </div>
+    <main className={css['landing-cont']}>
+      <div className={css['landing']}>
+        {isTabletOrMobile && (
+          <>
+            <div className={css['landing-main']}>
+              <h1>
+                Bradford pharmacy vaccinated over 40,000 patients with their
+                online booking form
+              </h1>
+              <a href={'https://rimmington.vercel.app/'}>Visit website</a>
+            </div>
 
-      <div className={css['landing-details']}>
-        <Detail title={'Role'} text={'Fullstack developer'} />
-        <Detail title={'Technology used'} text={'React, Django, Redux'} />
-        <Detail title={'Type'} text={'E-commerces store'} />
-        <Detail title={'Created'} text={'2022'} />
-        <Detail
-          title={'Description'}
-          text={
-            'Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for ce'
-          }
-          column={true}
-        />
-      </div>
+            <div className={css['landing-details']}>
+              <Detail title={'Role'} text={'Fullstack developer'} />
+              <Detail title={'Technology used'} text={'React, Django, Redux'} />
+              <Detail title={'Type'} text={'E-commerces store'} />
+              <Detail title={'Created'} text={'2022'} />
+              <Detail
+                title={'Description'}
+                text={
+                  'Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for ce'
+                }
+                column={true}
+              />
+            </div>
 
-      <img src={RimmingtonImg} alt='Website preview' />
-      <img src={RimmingtonImg} alt='Website preview' />
+            <img src={RimmingtonImg} alt='Website preview' />
+            <img src={RimmingtonImg} alt='Website preview' />
+          </>
+        )}
+
+        {isDesktopOrLaptop && (
+          <>
+            <div className={css['landing-main']}>
+              <div className={css['landing-main-title']}>
+                <div>
+                  <h1>
+                    Bradford pharmacy vaccinated over 40,000 patients with their
+                    online booking form
+                  </h1>
+
+                  {isDesktopOrLaptop ? (
+                    <div className={css['landing-learn-more-cont']}>
+                      <a
+                        href={'https://rimmington.vercel.app/'}
+                        className={css['landing-learn-more']}
+                      >
+                        Visit website
+                      </a>
+
+                      <div className={css['landing-more-hover']}>
+                        <p>Take a look for yourself</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <a href={'https://rimmington.vercel.app/'}>Visit website</a>
+                  )}
+                </div>
+
+                <div className={css['landing-main-details']}>
+                  <Detail title={'Role'} text={'Fullstack developer'} />
+                  <Detail
+                    title={'Technology used'}
+                    text={'React, Django, Redux'}
+                  />
+                </div>
+              </div>
+
+              <img src={RimmingtonImg} alt='Website preview' />
+            </div>
+
+            <div className={css['landing-details']}>
+              <img src={RimmingtonImg} alt='Website preview' />
+
+              <div className={css['landing-details-inner']}>
+                <Detail title={'Type'} text={'E-commerces store'} />
+                <Detail title={'Created'} text={'2022'} />
+                <Detail
+                  title={'Description'}
+                  text={
+                    'Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for ce'
+                  }
+                  column={true}
+                />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </main>
   );
 };

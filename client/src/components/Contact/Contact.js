@@ -84,12 +84,10 @@ const Contact = () => {
         )}
         {stage === 6 && (
           <div
-            onClick={() =>
-              dispatch(() => {
-                setContactOpen(false);
-                setStage(1);
-              })
-            }
+            onClick={() => {
+              dispatch(setContactOpen(false));
+              setStage(1);
+            }}
             className={css['contact-go-back']}
           >
             Go Back Home

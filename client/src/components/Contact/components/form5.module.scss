@@ -21,6 +21,10 @@
     font-size: 1rem;
     color: $accent2;
     transition: 300ms ease;
+
+    &:hover {
+      opacity: 80%;
+    }
   }
 }
 
