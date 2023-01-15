@@ -1,10 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import css from './process.module.scss';
 import { useDispatch } from 'react-redux';
 import { setContactOpen } from '../../../features/stateSlice';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useMediaQuery } from 'react-responsive';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Process = () => {
   const dispatch = useDispatch();
+  const elementRef = useRef();
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1025px)',
+  });
+
+  useEffect(() => {
+    const el = elementRef.current;
+
+    if (isDesktopOrLaptop) {
+      gsap.fromTo(
+        el,
+        { x: '-3.3rem', duration: 0.75, opacity: 0 },
+        {
+          x: 0,
+          duration: 0.75,
+          opacity: 1,
+          scrollTrigger: { trigger: el, start: 'center center' },
+        }
+      );
+    } else {
+      gsap.fromTo(
+        el,
+        { y: '3.3rem', duration: 0.75, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.75,
+          opacity: 1,
+          scrollTrigger: { trigger: el, start: 'center bottom' },
+        }
+      );
+    }
+  }, []);
 
   const handleOnClick = () => {
     window.scroll({
@@ -17,7 +54,7 @@ const Process = () => {
   return (
     <section className={css['process-cont']}>
       <div className={css['process']}>
-        <h2>What is our process?</h2>
+        <h2 ref={elementRef}>What is our process?</h2>
 
         <Step
           order={'a'}
@@ -93,8 +130,42 @@ const Process = () => {
 };
 
 const Step = ({ order, title, text }) => {
+  const elementRef = useRef();
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1025px)',
+  });
+
+  useEffect(() => {
+    if (isDesktopOrLaptop) {
+      const el = elementRef.current.children;
+
+      gsap.fromTo(
+        el[0],
+        { x: '-3.5rem', duration: 0.765, opacity: 0 },
+        {
+          x: 0,
+          duration: 0.765,
+          opacity: 1,
+          scrollTrigger: { trigger: el, start: 'center bottom' },
+        }
+      );
+
+      gsap.fromTo(
+        el[1],
+        { x: '3.5rem', duration: 0.765, opacity: 0 },
+        {
+          x: 0,
+          duration: 0.765,
+          opacity: 1,
+          scrollTrigger: { trigger: el, start: 'center bottom' },
+          stagger: 0.18,
+        }
+      );
+    }
+  }, []);
+
   return (
-    <div className={css['step']}>
+    <div className={css['step']} ref={elementRef}>
       <div className={css['step-order']}>
         <h6>{order},</h6>
       </div>

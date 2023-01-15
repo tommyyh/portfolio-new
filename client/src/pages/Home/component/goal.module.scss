@@ -115,11 +115,29 @@
         left: -1.85rem;
         margin-top: -0.5rem;
         z-index: 15;
+        // transition: 300ms ease;
         
         background: $accent;
         opacity: 75%;
         filter: blur(54px);
+        animation: light infinite ease-out alternate 1.5s;
       }
+    }
+  }
+
+  @keyframes light {
+    0% {
+      width: 4rem;
+      height: 4rem;
+      opacity: 65%;
+      left: -1.3rem;
+    }
+
+    100% {
+      width: 6.5rem;
+      height: 6.5rem;
+      opacity: 100%;
+      left: -1.85rem;
     }
   }
 }

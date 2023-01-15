@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import css from './goal.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch } from 'react-redux';
 import { setContactOpen } from '../../../features/stateSlice';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Goal = () => {
   const isDesktopOrLaptop = useMediaQuery({
@@ -10,15 +14,44 @@ const Goal = () => {
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
   const dispatch = useDispatch();
+  const elementRef = useRef();
+  const lampRef = useRef();
+
+  useEffect(() => {
+    const el = elementRef.current.children;
+
+    gsap.fromTo(
+      el,
+      { y: '6rem', duration: 0.75, opacity: 0 },
+      {
+        y: 0,
+        duration: 0.75,
+        opacity: 1,
+        scrollTrigger: { trigger: el, start: 'center bottom' },
+        stagger: 0.15,
+      }
+    );
+
+    gsap.fromTo(
+      lampRef.current,
+      { y: '6rem', duration: 0.75, opacity: 0 },
+      {
+        y: 0,
+        duration: 0.75,
+        opacity: 1,
+        scrollTrigger: { trigger: el, start: 'center bottom' },
+      }
+    );
+  }, []);
 
   return (
     <section className={css['goal-cont']}>
-      <div className={css['goal']}>
+      <div className={css['goal']} ref={elementRef}>
         <div className={css['goal-title']}>
           <h2>
             Web designer & developer who can help your business achieve more
           </h2>
-          {isDesktopOrLaptop && <Lamp />}
+          {isDesktopOrLaptop && <Lamp reference={lampRef} />}
         </div>
 
         <p>
@@ -31,15 +64,15 @@ const Goal = () => {
           </u>
         </p>
 
-        {isTabletOrMobile && <Lamp />}
+        {isTabletOrMobile && <Lamp reference={lampRef} />}
       </div>
     </section>
   );
 };
 
-const Lamp = () => {
+const Lamp = ({ reference }) => {
   return (
-    <div className={css['goal-lamp']}>
+    <div className={css['goal-lamp']} ref={reference}>
       <svg
         width={'9.56rem'}
         height={'10rem'}

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import css from './websites.module.scss';
 import AdonioImg from '../../../assets/images/adonio.png';
 import Rimmington from '../../../assets/images/rimmington.png';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Websites = ({ detailed }) => {
   const isDesktopOrLaptop = useMediaQuery({
@@ -88,6 +92,38 @@ const Project = ({
     query: '(min-width: 1025px)',
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+  const elementRef = useRef();
+  const element2Ref = useRef();
+
+  useEffect(() => {
+    const el = elementRef.current;
+    const el2 = element2Ref.current.children;
+
+    gsap.fromTo(
+      el,
+      { y: '2.75rem', duration: 0.85, opacity: 0 },
+      {
+        y: 0,
+        duration: 0.7,
+        opacity: 1,
+        scrollTrigger: { trigger: el, start: 'center bottom' },
+      }
+    );
+
+    setTimeout(() => {
+      gsap.fromTo(
+        el2,
+        { y: '2.75rem', duration: 0.7, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.7,
+          opacity: 1,
+          scrollTrigger: { trigger: el, start: 'center bottom' },
+          stagger: 0.265,
+        }
+      );
+    }, 400);
+  }, []);
 
   return (
     <>
@@ -97,6 +133,7 @@ const Project = ({
             to={link}
             className={css['project-img-link']}
             style={detailed ? { width: '100%' } : {}}
+            ref={elementRef}
           >
             <img src={img} alt='Project thumbnail' />
 
@@ -115,6 +152,7 @@ const Project = ({
                 ? `${css['project-content']} ${css['project-content-detailed']}`
                 : css['project-content']
             }
+            ref={element2Ref}
           >
             <div>
               <h5 className={css['project-subtitle']}>{subTitle}</h5>
@@ -166,6 +204,7 @@ const Project = ({
                 ? `${css['project-content']} ${css['project-content-detailed']} ${css['project-detailed-right']}`
                 : css['project-content']
             }
+            ref={element2Ref}
             style={
               detailed ? { marginLeft: '10rem', marginRight: '-0.5rem' } : {}
             }
@@ -210,6 +249,7 @@ const Project = ({
             to={link}
             className={css['project-img-link']}
             style={detailed ? { width: '100%' } : {}}
+            ref={elementRef}
           >
             <img src={img} alt='Project thumbnail' />
 
@@ -230,6 +270,7 @@ const Project = ({
             to={link}
             className={css['project-img-link']}
             style={detailed ? { width: '100%' } : {}}
+            ref={elementRef}
           >
             <img src={img} alt='Project thumbnail' />
 
@@ -248,6 +289,7 @@ const Project = ({
                 ? `${css['project-content']} ${css['project-content-detailed']}`
                 : css['project-content']
             }
+            ref={element2Ref}
           >
             <div style={detailed ? { width: '50%' } : {}}>
               <h5 className={css['project-subtitle']}>{subTitle}</h5>

@@ -27,7 +27,7 @@ const Menu = ({ menuOpen, setMenuOpen, handleOnClick }) => {
       >
         <div className={css['menu-links']}>
           <ul>
-            <li>
+            <li onClick={() => setMenuOpen(false)}>
               <Link to={'/my-work'}>my work</Link>
             </li>
             <li
