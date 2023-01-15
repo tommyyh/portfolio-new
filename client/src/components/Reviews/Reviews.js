@@ -213,7 +213,14 @@ const Reviews = () => {
             xmlns='http://www.w3.org/2000/svg'
           >
             <path d='M0 0H7V90H0V0Z' fill='#161616' />
-            <rect y='92' width='7' height='7' rx='1' fill='white' />
+            <rect
+              y='92'
+              width='7'
+              height='7'
+              rx='1'
+              fill='white'
+              className={css['bulb']}
+            />
           </svg>
           <div className={css['reviews-lamp-light']}></div>
         </div>

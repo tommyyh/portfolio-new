@@ -110,19 +110,17 @@ const Project = ({
       }
     );
 
-    setTimeout(() => {
-      gsap.fromTo(
-        el2,
-        { y: '2.75rem', duration: 0.7, opacity: 0 },
-        {
-          y: 0,
-          duration: 0.7,
-          opacity: 1,
-          scrollTrigger: { trigger: el, start: 'center bottom' },
-          stagger: 0.265,
-        }
-      );
-    }, 400);
+    gsap.fromTo(
+      el2,
+      { y: '2.75rem', duration: 0.7, opacity: 0 },
+      {
+        y: 0,
+        duration: 0.7,
+        opacity: 1,
+        scrollTrigger: { trigger: el, start: 'center bottom' },
+        stagger: 0.265,
+      }
+    );
   }, []);
 
   return (

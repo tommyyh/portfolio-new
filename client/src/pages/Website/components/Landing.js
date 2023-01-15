@@ -1,17 +1,185 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import css from './landing.module.scss';
 import RimmingtonImg from '../../../assets/images/rimmington.png';
 import { useMediaQuery } from 'react-responsive';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Cookies from 'js-cookie';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+  const elementRef = useRef();
+  const elementRef2 = useRef();
+
+  useEffect(() => {
+    const cookieValue = Cookies.get('justEntered');
+
+    if (isDesktopOrLaptop) {
+      const el = elementRef.current.children;
+      const el2 = elementRef2.current.children;
+
+      if (!cookieValue) {
+        setTimeout(() => {
+          gsap.fromTo(
+            el[0].children,
+            { x: '-5rem', duration: 0.58, opacity: 0 },
+            {
+              x: 0,
+              duration: 0.58,
+              opacity: 1,
+              scrollTrigger: { trigger: el, start: 'center bottom' },
+              stagger: 0.25,
+            }
+          );
+
+          gsap.fromTo(
+            el[1],
+            { x: '5rem', duration: 0.58, opacity: 0 },
+            {
+              x: 0,
+              duration: 0.58,
+              opacity: 1,
+              scrollTrigger: { trigger: el, start: 'center bottom' },
+            }
+          );
+
+          gsap.fromTo(
+            el2[0],
+            { x: '-5rem', duration: 0.58, opacity: 0 },
+            {
+              x: 0,
+              duration: 0.58,
+              opacity: 1,
+              scrollTrigger: { trigger: el, start: 'center bottom' },
+              stagger: 0.25,
+            }
+          );
+
+          gsap.fromTo(
+            el2[1],
+            { x: '5rem', duration: 0.58, opacity: 0 },
+            {
+              x: 0,
+              duration: 0.58,
+              opacity: 1,
+              scrollTrigger: { trigger: el, start: 'center bottom' },
+            },
+            '+=3'
+          );
+        }, 2000);
+      } else {
+        gsap.fromTo(
+          el[0].children,
+          { x: '-5rem', duration: 0.58, opacity: 0 },
+          {
+            x: 0,
+            duration: 0.58,
+            opacity: 1,
+            scrollTrigger: { trigger: el, start: 'center bottom' },
+            stagger: 0.25,
+          }
+        );
+
+        gsap.fromTo(
+          el[1],
+          { x: '5rem', duration: 0.58, opacity: 0 },
+          {
+            x: 0,
+            duration: 0.58,
+            opacity: 1,
+            scrollTrigger: { trigger: el, start: 'center bottom' },
+          }
+        );
+
+        gsap.fromTo(
+          el2[0],
+          { x: '-5rem', duration: 0.58, opacity: 0 },
+          {
+            x: 0,
+            duration: 0.58,
+            opacity: 1,
+            scrollTrigger: { trigger: el, start: 'center bottom' },
+            stagger: 0.25,
+          }
+        );
+
+        gsap.fromTo(
+          el2[1],
+          { x: '5rem', duration: 0.58, opacity: 0 },
+          {
+            x: 0,
+            duration: 0.58,
+            opacity: 1,
+            scrollTrigger: { trigger: el, start: 'center bottom' },
+          },
+          '+=3'
+        );
+      }
+    } else {
+      const el = elementRef.current.children;
+
+      if (!cookieValue) {
+        setTimeout(() => {
+          gsap.fromTo(
+            el[0].children,
+            { y: '5rem', duration: 0.58, opacity: 0 },
+            {
+              y: 0,
+              duration: 0.58,
+              opacity: 1,
+              scrollTrigger: { trigger: el, start: 'center bottom' },
+              stagger: 0.25,
+            }
+          );
+
+          gsap.fromTo(
+            el[1].children,
+            { y: '5rem', duration: 0.58, opacity: 0 },
+            {
+              y: 0,
+              duration: 0.58,
+              opacity: 1,
+              scrollTrigger: { trigger: el, start: 'center bottom' },
+              stagger: 0.15,
+            }
+          );
+        }, 2000);
+      } else {
+        gsap.fromTo(
+          el[0].children,
+          { y: '5rem', duration: 0.58, opacity: 0 },
+          {
+            y: 0,
+            duration: 0.58,
+            opacity: 1,
+            scrollTrigger: { trigger: el, start: 'center bottom' },
+            stagger: 0.25,
+          }
+        );
+
+        gsap.fromTo(
+          el[1].children,
+          { y: '5rem', duration: 0.58, opacity: 0 },
+          {
+            y: 0,
+            duration: 0.58,
+            opacity: 1,
+            scrollTrigger: { trigger: el, start: 'center bottom' },
+            stagger: 0.15,
+          }
+        );
+      }
+    }
+  }, []);
 
   return (
     <main className={css['landing-cont']}>
-      <div className={css['landing']}>
+      <div className={css['landing']} ref={elementRef}>
         {isTabletOrMobile && (
           <>
             <div className={css['landing-main']}>
@@ -43,7 +211,7 @@ const Landing = () => {
 
         {isDesktopOrLaptop && (
           <>
-            <div className={css['landing-main']}>
+            <div className={css['landing-main']} ref={elementRef}>
               <div className={css['landing-main-title']}>
                 <div>
                   <h1>
@@ -81,7 +249,7 @@ const Landing = () => {
               <img src={RimmingtonImg} alt='Website preview' />
             </div>
 
-            <div className={css['landing-details']}>
+            <div className={css['landing-details']} ref={elementRef2}>
               <img src={RimmingtonImg} alt='Website preview' />
 
               <div className={css['landing-details-inner']}>

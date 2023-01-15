@@ -89,7 +89,15 @@ const Lamp = ({ reference }) => {
           fill='#161616'
         />
         <path d='M17 86H24V150H17V86Z' fill='#161616' />
-        <rect x='17' y='153' width='7' height='7' rx='1' fill='#36C99A' />
+        <rect
+          x='17'
+          y='153'
+          width='7'
+          height='7'
+          rx='1'
+          fill='#36C99A'
+          className={css['bulb']}
+        />
       </svg>
       <div className={css['goal-lamp-light']}></div>
     </div>

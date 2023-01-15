@@ -4,6 +4,7 @@ import Adonio from '../../../assets/images/adonio.png';
 import Rimmington from '../../../assets/images/rimmington.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Cookies from 'js-cookie';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +13,21 @@ const Preview = () => {
 
   useEffect(() => {
     const el = prevRef.current.children[0];
+    const cookieValue = Cookies.get('justEntered');
 
-    setTimeout(() => {
+    if (!cookieValue) {
+      setTimeout(() => {
+        gsap.fromTo(
+          el,
+          { duration: 0.4, opacity: 0.5 },
+          {
+            duration: 0.4,
+            opacity: 0.85,
+            scrollTrigger: { trigger: el },
+          }
+        );
+      }, 2450);
+    } else {
       gsap.fromTo(
         el,
         { duration: 0.4, opacity: 0.5 },
@@ -23,7 +37,7 @@ const Preview = () => {
           scrollTrigger: { trigger: el },
         }
       );
-    }, 2450);
+    }
   }, []);
 
   return (

@@ -50,12 +50,41 @@
   position: absolute;
   width: 94px;
   height: 94px;
-  left: -2.7rem;
+  left: -2.8rem;
   margin-top: -0.6rem;
   z-index: 15;
 
   background: rgba(241, 241, 241, 0.7);
   filter: blur(54px);
+  animation: light infinite ease-out alternate 0.7s;
+}
+
+.bulb {
+  animation: lightBulb infinite ease-out alternate 0.91s;
+}
+
+@keyframes light {
+  0% {
+    width: 4rem;
+    height: 4rem;
+    opacity: 65%;
+  }
+
+  100% {
+    width: 6.5rem;
+    height: 6.5rem;
+    opacity: 100%;
+  }
+}
+
+@keyframes lightBulb {
+  0% {
+    opacity: 30%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
 
 @media all and (min-width: 1025px) {
