@@ -116,9 +116,7 @@ const Reviews = () => {
         <div className={css['reviews-title']} ref={elementRef}>
           <div>
             <h5>Don’t take our word for it {isTabletOrMobile && '(swipe)'}</h5>
-            <h2>
-              Trust our past customers<span>.</span>
-            </h2>
+            <h2>Trust our past customers</h2>
           </div>
 
           {isDesktopOrLaptop && (

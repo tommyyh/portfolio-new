@@ -49,9 +49,7 @@ const Landing = () => {
         <Link to={'/'} className={css['landing-go-back']}>
           Go back
         </Link>
-        <h1>
-          Our Work<span>.</span>
-        </h1>
+        <h1>Our Work</h1>
       </div>
     </section>
   );

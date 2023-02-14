@@ -28,7 +28,7 @@ const Menu = ({ menuOpen, setMenuOpen, handleOnClick }) => {
         <div className={css['menu-links']}>
           <ul>
             <li onClick={() => setMenuOpen(false)}>
-              <Link to={'/my-work'}>my work</Link>
+              <Link to={'/my-work'}>our work</Link>
             </li>
             <li
               onClick={() => {
@@ -40,7 +40,7 @@ const Menu = ({ menuOpen, setMenuOpen, handleOnClick }) => {
               socials
             </li>
             <li onClick={() => dispatch(setContactOpen(true))}>
-              <u>contact me</u>
+              <u>contact us</u>
             </li>
           </ul>
         </div>
