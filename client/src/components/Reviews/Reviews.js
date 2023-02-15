@@ -8,11 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Reviews = () => {
+const Reviews = ({ reviews }) => {
   const [counter, setCounter] = useState(1);
   const [reviewsTrans, setReviewsTrans] = useState(false);
   const firstRef = useRef();
-  const reviewAmount = 4;
+  const reviewAmount = reviews.length;
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
   });
@@ -152,49 +152,30 @@ const Reviews = () => {
           ></div>
 
           <div {...handlers} className={css['reviews-list']}>
-            <Review
-              text={
-                "Tommy is a guy that finds solutions, where they are needed the most. That's why working with him is a pleasure."
-              }
-              rating={'4.6'}
-              signature={
-                'Justus-Konrad Flade: CEO of Jubefa, F&S Consulting and more'
-              }
-              position={counter}
-              amount={reviewAmount}
-              myRef={firstRef}
-              reviewsTrans={reviewsTrans}
-            />
-            <Review
-              text={
-                'Tommy was able to nicely present our brand online. He was a pleasure to work with'
-              }
-              rating={'4.8'}
-              signature={'Mark Zuckerberg, CEO Of Facebook'}
-              position={counter}
-              amount={reviewAmount}
-              reviewsTrans={reviewsTrans}
-            />
-            <Review
-              text={
-                'Tommy was able to nicely present our brand online. He was a pleasure to work with'
-              }
-              rating={'4.8'}
-              signature={'Andrew Tate, CEO Of Academy'}
-              position={counter}
-              amount={reviewAmount}
-              reviewsTrans={reviewsTrans}
-            />
-            <Review
-              text={
-                'Tommy was able to nicely present our brand online. He was a pleasure to work with'
-              }
-              rating={'4.8'}
-              signature={'Barack Obama, CEO Of Something'}
-              position={counter}
-              amount={reviewAmount}
-              reviewsTrans={reviewsTrans}
-            />
+            {reviews.map((review, index) =>
+              index + 1 === 1 ? (
+                <Review
+                  key={review.id}
+                  text={review.content}
+                  rating={review.rating}
+                  signature={review.author}
+                  position={counter}
+                  amount={reviewAmount}
+                  myRef={firstRef}
+                  reviewsTrans={reviewsTrans}
+                />
+              ) : (
+                <Review
+                  key={review.id}
+                  text={review.content}
+                  rating={`${review.rating}/5`}
+                  signature={review.author}
+                  position={counter}
+                  amount={reviewAmount}
+                  reviewsTrans={reviewsTrans}
+                />
+              )
+            )}
           </div>
 
           <div

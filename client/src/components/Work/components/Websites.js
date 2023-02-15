@@ -9,69 +9,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Websites = ({ detailed }) => {
+const Websites = ({ detailed, websites }) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
   });
 
+  const getPosition = (x) => {
+    const num = x + 1;
+
+    if (num % 2 == 0) {
+      return 'right';
+    } else if (num % 3 == 0) {
+      return 'mid';
+    } else {
+      return 'left';
+    }
+  };
+
   return (
     <div className={css['projects']}>
-      <Project
-        img={AdonioImg}
-        subTitle={'E-commerce store'}
-        title={"Adonio's sneakers store"}
-        detailedTitle={
-          'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
-        }
-        detailed={detailed}
-        link={'/my-work/34928'}
-        role={'Fullstack developer'}
-        tech={'Django, React, Redux'}
-        year={'2022'}
-        position={isDesktopOrLaptop ? 'left' : 'left'}
-      />
-      <Project
-        img={Rimmington}
-        subTitle={'Pharmacy website'}
-        title={'Rimmington - Flu Jab booking'}
-        detailedTitle={
-          'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
-        }
-        detailed={detailed}
-        link={'/my-work/34928'}
-        role={'UX/UI developer'}
-        tech={'Django, React, Redux'}
-        year={'2022'}
-        position={isDesktopOrLaptop ? 'right' : 'left'}
-      />
-      <Project
-        img={AdonioImg}
-        subTitle={'E-commerce store'}
-        title={"Adonio's sneakers store"}
-        detailedTitle={
-          'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
-        }
-        detailed={detailed}
-        link={'/my-work/34928'}
-        role={'Fullstack developer'}
-        tech={'Django, React, Redux'}
-        year={'2022'}
-        position={isDesktopOrLaptop ? 'mid' : 'left'}
-      />
-      <Project
-        img={Rimmington}
-        subTitle={'Pharmacy website'}
-        title={'Rimmington - Flu Jab booking'}
-        detailedTitle={
-          'Bradford pharmacy vaccinated over 40,000 patients with their online booking form'
-        }
-        detailed={detailed}
-        link={'/my-work/34928'}
-        role={'UX/UI developer'}
-        tech={'Django, React, Redux'}
-        year={'2022'}
-        position={isDesktopOrLaptop ? 'right' : 'left'}
-      />
+      {websites.map((website, index) => (
+        <Project
+          key={website.id}
+          img={website.images[0]?.image}
+          subTitle={website.type}
+          title={website.title}
+          detailedTitle={website.long_title}
+          detailed={detailed}
+          link={`/my-work/${website.id}`}
+          role={website.role}
+          tech={`${website.tech[0].tech}, ${website.tech[1].tech}, ${website.tech[2].tech}`}
+          year={website.year}
+          position={isDesktopOrLaptop ? getPosition(index) : 'left'}
+        />
+      ))}
     </div>
   );
 };

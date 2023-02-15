@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Website, WebsiteImage, WebsiteTech
+from .models import Website, WebsiteImage, WebsiteTech, Review
 
 # Register your models here.
 class WebsiteImageInline(admin.TabularInline):
@@ -14,3 +14,4 @@ class WebsiteAdmin(admin.ModelAdmin):
   inlines = [ WebsiteImageInline, WebsiteTechInline ]
 
 admin.site.register(Website, WebsiteAdmin)
+admin.site.register(Review)

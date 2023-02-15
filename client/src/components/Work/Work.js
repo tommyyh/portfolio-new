@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Work = ({ detailed }) => {
+const Work = ({ detailed, websites, websiteLength }) => {
   const elementRef = useRef();
 
   useEffect(() => {
@@ -48,17 +48,13 @@ const Work = ({ detailed }) => {
   return (
     <section className={css['work-cont']}>
       <div className={css['work']} ref={elementRef}>
-        {!detailed && (
-          <h2>
-            Our Recent Work<span>.</span>
-          </h2>
-        )}
+        {!detailed && <h2>Our Recent Work</h2>}
 
-        <Websites detailed={detailed} />
+        <Websites detailed={detailed} websites={websites} />
 
         {!detailed && (
           <Link to={'/my-work'} className={css['work-view-all']}>
-            View all our work (5)
+            View all our work ({websiteLength})
           </Link>
         )}
       </div>

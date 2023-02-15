@@ -87,7 +87,7 @@
   // Image 
   .project-img-link {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
 
     &:hover {
       & img {
@@ -215,7 +215,7 @@
       }
 
       & .project-title-left {
-        margin: 0 6rem 0 0;
+        margin: 0 2rem 0 0;
 
         font-size: 1.75rem;
         text-shadow: 1px 1px 10px rgb(255, 255, 255, 20%), 1px 1px 10px rgb(255, 255, 255, 20%);

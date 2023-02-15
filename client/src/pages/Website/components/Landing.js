@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import css from './landing.module.scss';
-import RimmingtonImg from '../../../assets/images/rimmington.png';
 import { useMediaQuery } from 'react-responsive';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Landing = () => {
+const Landing = ({ website }) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1025px)',
   });
@@ -183,29 +183,41 @@ const Landing = () => {
         {isTabletOrMobile && (
           <>
             <div className={css['landing-main']}>
-              <h1>
-                Bradford pharmacy vaccinated over 40,000 patients with their
-                online booking form
-              </h1>
-              <a href={'https://rimmington.vercel.app/'}>Visit website</a>
+              <h1>{website.long_title}</h1>
+              {website.live ? (
+                <a href={website.website_link} target='_blank'>
+                  Visit website
+                </a>
+              ) : (
+                <Link to={''}>Website coming soon.</Link>
+              )}
             </div>
 
             <div className={css['landing-details']}>
-              <Detail title={'Role'} text={'Fullstack developer'} />
-              <Detail title={'Technology used'} text={'React, Django, Redux'} />
-              <Detail title={'Type'} text={'E-commerces store'} />
-              <Detail title={'Created'} text={'2022'} />
+              <Detail title={'Role'} text={website.role} />
+              <Detail title={'Status'} text={website.status} />
+              <Detail
+                title={'Technology used'}
+                text={`${website.tech[0].tech}, ${website.tech[1].tech}, ${website.tech[2].tech}`}
+              />
+              <Detail title={'Type'} text={website.type} />
+              <Detail title={'Created'} text={website.year} />
               <Detail
                 title={'Description'}
-                text={
-                  'Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for ce'
-                }
+                text={website.description}
                 column={true}
               />
             </div>
 
-            <img src={RimmingtonImg} alt='Website preview' />
-            <img src={RimmingtonImg} alt='Website preview' />
+            <img src={website.images[0]?.image} alt='Website preview' />
+            <img
+              src={
+                !website.images[1]
+                  ? website.images[0]?.image
+                  : website.images[1]?.image
+              }
+              alt='Website preview'
+            />
           </>
         )}
 
@@ -214,52 +226,60 @@ const Landing = () => {
             <div className={css['landing-main']} ref={elementRef}>
               <div className={css['landing-main-title']}>
                 <div>
-                  <h1>
-                    Bradford pharmacy vaccinated over 40,000 patients with their
-                    online booking form
-                  </h1>
+                  <h1>{website.long_title}</h1>
 
-                  {isDesktopOrLaptop ? (
-                    <div className={css['landing-learn-more-cont']}>
+                  <div className={css['landing-learn-more-cont']}>
+                    {website.live ? (
                       <a
-                        href={'https://rimmington.vercel.app/'}
+                        href={website.website_link}
                         className={css['landing-learn-more']}
+                        target='_blank'
                       >
                         Visit website
                       </a>
+                    ) : (
+                      <Link to={''} className={css['landing-learn-more']}>
+                        Website coming soon.
+                      </Link>
+                    )}
 
-                      <div className={css['landing-more-hover']}>
-                        <p>Take a look for yourself</p>
-                      </div>
+                    <div className={css['landing-more-hover']}>
+                      <p>
+                        Hang tight! Website is under construction, coming soon.
+                      </p>
                     </div>
-                  ) : (
-                    <a href={'https://rimmington.vercel.app/'}>Visit website</a>
-                  )}
+                  </div>
                 </div>
 
                 <div className={css['landing-main-details']}>
-                  <Detail title={'Role'} text={'Fullstack developer'} />
+                  <Detail title={'Role'} text={website.role} />
                   <Detail
                     title={'Technology used'}
-                    text={'React, Django, Redux'}
+                    text={`${website.tech[0].tech}, ${website.tech[1].tech}, ${website.tech[2].tech}`}
                   />
                 </div>
               </div>
 
-              <img src={RimmingtonImg} alt='Website preview' />
+              <img src={website.images[0]?.image} alt='Website preview' />
             </div>
 
             <div className={css['landing-details']} ref={elementRef2}>
-              <img src={RimmingtonImg} alt='Website preview' />
+              <img
+                src={
+                  !website.images[1]
+                    ? website.images[0]?.image
+                    : website.images[1]?.image
+                }
+                alt='Website preview'
+              />
 
               <div className={css['landing-details-inner']}>
-                <Detail title={'Type'} text={'E-commerces store'} />
-                <Detail title={'Created'} text={'2022'} />
+                <Detail title={'Status'} text={website.status} />
+                <Detail title={'Type'} text={website.type} />
+                <Detail title={'Created'} text={website.year} />
                 <Detail
                   title={'Description'}
-                  text={
-                    'Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for Rimming pharmacy is a pharmacy located in Englang, Bradford. Known for ce'
-                  }
+                  text={website.description}
                   column={true}
                 />
               </div>

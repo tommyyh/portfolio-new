@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch } from 'react-redux';
 import { setContactOpen } from '../../features/stateSlice';
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,14 +35,21 @@ const Navbar = () => {
 
   // Banner before entering page
   useEffect(() => {
-    if (
-      String(window.performance.getEntriesByType('navigation')[0].type) ===
-      'reload'
-    ) {
+    let cookieValue = Cookies.get('justEntered');
+
+    if (!cookieValue) {
       setWelcomeScreen(true);
+
+      setTimeout(() => {
+        Cookies.set('justEntered', new Date());
+      }, 2000);
     } else {
       setWelcomeScreen(false);
     }
+
+    return () => {
+      Cookies.remove('justEntered');
+    };
   }, []);
 
   useEffect(() => {
