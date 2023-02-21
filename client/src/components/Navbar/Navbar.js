@@ -39,7 +39,6 @@ const Navbar = () => {
 
     if (!cookieValue) {
       setWelcomeScreen(true);
-
       setTimeout(() => {
         Cookies.set('justEntered', new Date());
       }, 2000);

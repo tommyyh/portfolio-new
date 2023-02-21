@@ -19,6 +19,10 @@ class WebsiteImage(models.Model):
   website = models.ForeignKey(Website, related_name='images', on_delete=models.CASCADE)
   image = models.FileField(upload_to='media/website-images', blank=False)
 
+class WebsiteBlurredImage(models.Model):
+  website = models.ForeignKey(Website, related_name='blurred_images', on_delete=models.CASCADE)
+  image = models.FileField(upload_to='media/blurred-images', blank=False)
+
 class WebsiteTech(models.Model):
   website = models.ForeignKey(Website, related_name='tech', on_delete=models.CASCADE)
   tech = models.CharField(max_length=255, blank=False)

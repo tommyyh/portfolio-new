@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import css from './websites.module.scss';
-import AdonioImg from '../../../assets/images/adonio.png';
-import Rimmington from '../../../assets/images/rimmington.png';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ProgressiveImage from 'react-progressive-graceful-image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +31,7 @@ const Websites = ({ detailed, websites }) => {
         <Project
           key={website.id}
           img={website.images[0]?.image}
+          blurredImages={website.blurred_images[0]?.image}
           subTitle={website.type}
           title={website.title}
           detailedTitle={website.long_title}
@@ -49,6 +49,7 @@ const Websites = ({ detailed, websites }) => {
 
 const Project = ({
   img,
+  blurredImages,
   subTitle,
   title,
   detailedTitle,

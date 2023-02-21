@@ -245,7 +245,9 @@ const Landing = ({ website }) => {
 
                     <div className={css['landing-more-hover']}>
                       <p>
-                        Hang tight! Website is under construction, coming soon.
+                        {website.live
+                          ? 'Take a look for yourself!'
+                          : 'Hang tight! Website is under construction, coming soon.'}
                       </p>
                     </div>
                   </div>
