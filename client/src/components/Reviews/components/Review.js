@@ -24,7 +24,9 @@ const Review = ({
 
       <div className={css['review-main']}>
         <FaQuoteLeft size={'2.1rem'} color={'#4B4B4B'} />
-        <p>{text}</p>
+        <div className={css['review-p']}>
+          <p>{text}</p>
+        </div>
         <h4>{rating}/5</h4>
       </div>
 
